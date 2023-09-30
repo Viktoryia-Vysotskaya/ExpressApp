@@ -30,6 +30,14 @@ app.get('/history', (req, res) => {
     res.show('history.html');
 });
 
+app.get('/style.css', (req, res) => {
+    res.sendFile(path.join(__dirname, '/style.css'));
+  });
+  
+  app.get('/test.jpg', (req, res) => {
+    res.sendFile(path.join(__dirname, '/test.jpg'));
+  });
+
 app.use((req, res) => {
     res.status(404).send('404 not found...');
 })

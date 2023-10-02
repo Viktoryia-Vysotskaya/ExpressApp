@@ -3,6 +3,11 @@ const path = require('path');
 
 const app = express();
 
+const hbs = require('express-handlebars');
+
+app.engine('.hbs', hbs());
+app.set('view engine', '.hbs');
+
 app.use((req, res, next) => {
     res.show = (name) => {
         res.sendFile(path.join(__dirname, `/views/${name}`));

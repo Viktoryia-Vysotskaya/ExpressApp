@@ -38,7 +38,7 @@ app.get('/history', (req, res, next) => {
 });
 
 app.get('/hello/:name', (req, res) => {
-    res.send(`Hello ${req.params.name}`);
+    res.render('hello', { name: req.params.name });
 });
 
 app.use((req, res) => {

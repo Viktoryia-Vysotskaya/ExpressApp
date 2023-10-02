@@ -9,7 +9,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+//app.use(express.json());
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -36,16 +36,13 @@ app.get('/history', (req, res) => {
 });
 
 app.post('/contact/send-message', (req, res) => {
-
     const { author, sender, title, message } = req.body;
-
     if (author && sender && title && message) {
-        res.send('The message has been sent!');
+        res.render('contact', { isSent: true });
     }
     else {
-        res.send('You can\'t leave fields empty!')
+        res.render('contact', { isError: true });
     }
-
 });
 
 app.use((req, res) => {

@@ -21,7 +21,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
-    res.render('contact', { layout: 'dark'});
+    res.render('contact', { layout: 'dark' });
 });
 
 app.get('/info', (req, res) => {
@@ -30,6 +30,10 @@ app.get('/info', (req, res) => {
 
 app.get('/history', (req, res) => {
     res.render('history');
+});
+
+app.post('/contact/send-message', (req, res) => {
+    res.json(req.body);
 });
 
 app.use((req, res) => {
